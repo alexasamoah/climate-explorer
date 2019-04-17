@@ -1,0 +1,72 @@
+:root {
+  --bg: #0b1020;
+  --panel: #111831;
+  --teal: #11d3bc;
+  --blue: #3a86ff;
+  --red: #ff595e;
+  --text: #dbe7ff;
+}
+body {
+  background: radial-gradient(circle at top, #16213f 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+.hero {
+  position: relative;
+  padding: 3rem 0 2rem;
+  overflow: hidden;
+  background: linear-gradient(120deg, rgba(17,24,49,.9), rgba(5,9,20,.9));
+}
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(17,211,188,.18), transparent 35%),
+              radial-gradient(circle at 80% 40%, rgba(58,134,255,.22), transparent 35%),
+              radial-gradient(circle at 60% 80%, rgba(255,89,94,.18), transparent 35%);
+  animation: pulse 9s infinite alternate;
+}
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.08);} }
+
+.viz-card {
+  background: linear-gradient(180deg, rgba(18,26,51,.95), rgba(13,18,35,.95));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(0,0,0,.35);
+  padding: 1rem;
+}
+.viz { min-height: 320px; }
+h1, h3 { color: #f4f8ff; }
+label { font-size: .85rem; color: #8da3d9; }
+#insightCards .insight {
+  background: rgba(255,255,255,.04);
+  border-left: 4px solid var(--teal);
+  border-radius: 8px;
+  padding: .75rem;
+  margin-bottom: .75rem;
+}
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  padding: 8px 10px;
+  background: rgba(5,8,18,.95);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+}
+svg text { fill: #cfe0ff; font-size: 11px; }
+
+@media (max-width: 768px) {
+  .viz { min-height: 280px; }
+}
+
+.footer {
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: #9fb2df;
+  background: rgba(8,12,24,.85);
+}
+.footer a {
+  color: #11d3bc;
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
