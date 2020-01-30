@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global CO2 Emissions & Climate Impact Explorer 2019</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+      <h1>Global CO2 Emissions & Climate Impact Explorer 2019</h1>
+      <p class="lead">A cinematic data journey through emissions, growth, and climate signals (2010–2019).</p>
+      <div class="filters row">
+        <div class="col-md-4">
+          <label>Year</label>
+          <input id="yearRange" type="range" min="2010" max="2019" step="1" value="2019" class="custom-range" />
+          <div id="yearLabel">2019</div>
+        </div>
+        <div class="col-md-4">
+          <label>Continent</label>
+          <select id="continentFilter" class="form-control"></select>
+        </div>
+        <div class="col-md-4">
+          <label>Min CO2 (Mt)</label>
+          <input id="co2Threshold" type="range" min="0" max="1000" step="10" value="0" class="custom-range" />
+          <div id="thresholdLabel">0 Mt</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid mt-4 mb-5">
+    <section class="row">
+      <div class="col-lg-8 mb-4"><div class="card viz-card"><h3>World Emissions Choropleth</h3><div id="mapChart" class="viz"></div></div></div>
+      <div class="col-lg-4 mb-4"><div class="card viz-card"><h3>Key Insights</h3><div id="insightCards" class="p-3"></div></div></div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-7 mb-4"><div class="card viz-card"><h3>Animated Bubble Story</h3><button id="playBubble" class="btn btn-sm btn-success mb-2">Play</button><div id="bubbleChart" class="viz"></div></div></div>
+      <div class="col-lg-5 mb-4"><div class="card viz-card"><h3>Top Emitters Bar Race</h3><button id="playRace" class="btn btn-sm btn-danger mb-2">Race</button><div id="barRaceChart" class="viz"></div></div></div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-8 mb-4"><div class="card viz-card"><h3>CO2 + Temperature Trend (Brush Enabled)</h3><div id="lineChart" class="viz"></div></div></div>
+      <div class="col-lg-4 mb-4"><div class="card viz-card"><h3>Country Compare (up to 4)</h3><select id="compareSelect" class="form-control" multiple size="8"></select><div id="compareChart" class="viz mt-3"></div></div></div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-6 mb-4"><div class="card viz-card"><h3>GDP vs CO2 (Regression)</h3><div id="scatterChart" class="viz"></div></div></div>
+      <div class="col-lg-6 mb-4"><div class="card viz-card"><h3>KMeans Clusters</h3><div id="clusterChart" class="viz"></div></div></div>
+    </section>
+
+    <section class="row">
+      <div class="col-12">
+        <div class="card viz-card p-4">
+          <h3>Story</h3>
+          <p>This decade reveals the tension between development and decarbonization. Use the filters, brush, and country comparison to trace how economic growth, emissions, and temperature signals moved together over time.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer text-center py-4">
+    <div>Created by Alex Asamoah, 2019</div>
+    <div><a href="https://github.com/alexasamoah/climate-explorer" target="_blank" rel="noopener noreferrer">Source Code</a></div>
+  </footer>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script src="script.js"></script>
+</body>
+</html>
